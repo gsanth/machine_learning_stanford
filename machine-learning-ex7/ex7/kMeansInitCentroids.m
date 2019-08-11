@@ -13,12 +13,10 @@ centroids = zeros(K, size(X, 2));
 %               the dataset X
 %
 
+% Initialize centroids to random examples
 
-
-
-
-
-
+randidx = randperm(size(X,1));
+centroids = X(randidx(1:K), :);
 
 % =============================================================
 
