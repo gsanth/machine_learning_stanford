@@ -23,15 +23,11 @@ idx = zeros(size(X,1), 1);
 %
 
 for i=1:m
-  idx(i) = 1;
-  c = 0;
+  dist_j = zeros(K, 1);
   for j=1:K
-    c_j = sqrt(sum((X(i, :) - centroids(j, :)) .^ 2));
-    if c == 0 || c_j < c
-      c = c_j;
-      idx(i) = j;
-    endif
+    dist_j(j) = sqrt(sum((X(i, :) - centroids(j, :)) .^ 2));
   endfor
+  [min_dist, idx(i)] = min(dist_j);
 endfor
 
 
